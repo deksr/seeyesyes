@@ -1,0 +1,36 @@
+/*@media only screen and (max-width: 300px) {
+    body {
+        background-color: lightblue;
+    }
+    h1{
+    	color:red;}
+}*/
+
+
+@media (max-width: 400px) {
+	 body{
+	 	 background-color: lightblue;
+	 }
+
+  .the-heading{
+  	background-color: violet;
+  	margin-left: 5%;
+  	margin-right: 5%;
+  }
+
+  .entire-ul{
+  	background-color: violet;
+  	margin-left: 5%;
+  	margin-right: 5%;
+  	position: relative;
+  	top: 370px;
+  }
+
+  .lorems{
+  	background-color: violet;
+  	margin-left: 5%;
+  	margin-right: 5%;
+  	position: relative;
+  	top: -130px;
+  }
+}

@@ -1,0 +1,22 @@
+@media (min-width: 401px) and (max-width: 800px) {
+  body { 
+  	background: green; 
+  }
+  .the-heading{
+  	background-color: mediumseagreen;
+  	margin-left: 5%;
+  	margin-right: 5%;
+  }
+
+  .entire-ul{
+  	background-color: mediumseagreen;
+  	margin-left: 5%;
+  	margin-right: 5%;
+  }
+
+  .lorems{
+  	background-color: mediumseagreen;
+  	margin-left: 5%;
+  	margin-right: 5%;
+  }
+}
