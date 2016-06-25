@@ -43,6 +43,9 @@ var createDiv = document.createElement('div');
 var onMyMind = document.querySelector(".onmymind");
 onMyMind.setAttribute('id', 'you-got-me')
 
+var onMyMind = document.querySelector(".onmymind");
+onMyMind.innerText= "Kanye West - bam"
+
 
 
 
