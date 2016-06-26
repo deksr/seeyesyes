@@ -1,5 +1,9 @@
 console.log("connected")
 
+
+
+////////////addEventListener////
+
 function hiddelton(){
 	console.log("I got picked by taylor on her jet");
 
@@ -12,6 +16,8 @@ function hiddelton(){
 
 document.getElementById("taylor").addEventListener("click", hiddelton)
 ///////////////////////////////
+
+
 
 
 // for enter key///////////////
@@ -30,3 +36,56 @@ document.getElementById("photograpger-name").addEventListener('keypress', functi
       
     }
 })
+///////////////////////////////
+
+
+
+
+////////////this  ///////////////
+function showArtists(e){
+
+	// Notes///////
+  // Always true
+  // console.log(this === e.currentTarget);
+
+  // true when currentTarget and target are the same object
+  // console.log(this === e.target);
+  // this.style.backgroundColor = '#A5D9F3';
+  // if (this === e.target) 
+  /////////////////
+
+  var forHiphop = document.body.querySelector(".hiphop")
+  var forRock = document.body.querySelector(".rock")
+  var forPop = document.body.querySelector(".pop")
+  var span = document.createElement('span');
+
+
+  if (this === forHiphop){
+  	console.log("hip hop selected");
+  	span.innerHTML = "Kendrick Lamar";
+    forHiphop.appendChild(span);
+  }
+  else if(this === forRock){
+  	console.log("rock selected");
+  	span.innerHTML = "Foo Fighters";
+    forRock.appendChild(span);
+  }
+  else if(this === forPop){
+  	console.log("Pop selected")
+  	span.innerHTML = "RIRI";
+    forPop.appendChild(span);
+  }
+
+}
+
+var elem = document.body.querySelectorAll(".all")
+console.log(elem)
+
+
+for (var i=0 ; i<elem.length ; i++) {
+  elem[i].addEventListener('click', showArtists, false);
+}
+///////////////////
+
+
+
