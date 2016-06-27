@@ -15,7 +15,7 @@ var numbers = [1, 2, 3, 4, 5, 6, 7]
    // pops last one
    console.log(throwbacks.pop())
 
-	 // reverse the elements in array
+   // reverse the elements in array
    console.log(throwbacks.reverse())
 
    // returns first element
