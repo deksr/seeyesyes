@@ -10,10 +10,10 @@ var numbers = [1, 2, 3, 4, 5, 6, 7]
 
 
 ////////////////////////////////////////////////
-// methods that moddifies original array. Comment each out after execution
+// methods that modifies original array. Comment each out after execution
 
    // pops last one
-	 console.log(throwbacks.pop())
+   console.log(throwbacks.pop())
 
 	 // reverse the elements in array
    console.log(throwbacks.reverse())
@@ -33,7 +33,7 @@ var numbers = [1, 2, 3, 4, 5, 6, 7]
 
 
 ////////////////////////////////////////////////
-// methods that doesnt moddify original array. 
+// methods that doesnt modify original array. 
 
    // joins two arrays
    console.log(throwbacks.concat(numbers))
