@@ -46,11 +46,21 @@ console.log("connect");
 //     }
 // });
 
+// disection of style method: style();
+// style ("color" "red") is equivalent to writing a style tag witin an element. like this 
+// <style = "color = red">
+
+
 
 // correction: added div with container class in the html. 
 // appending div elements with bargraph class to the container div. 
+// adding the style method to each data
 var dataset = [ 5, 10, 15, 20, 56 ];
-d3.select(".container").selectAll("div").data(dataset).enter().append("div").attr("class", "bargraph")
+d3.select(".container").selectAll("div").data(dataset).enter().append("div").attr("class", "bargraph").style("height", function(d){
+	return d + 'px';
+})
+
+
 
 
 
