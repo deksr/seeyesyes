@@ -14,9 +14,16 @@ d3.select("body").append("p").text("new paragraph")
 // console.log(d3.selectAll("p"));
 
 /////////// displaying data ////////////
+// var dataset = [ 5, 10, 15, 20, 56 ];
+// d3.select("body").selectAll("p").data(dataset).enter().append("p").text(function(d){
+// 	return "number of people in the movie theater " + d;
+// });
+
+
+///////// displaying the css//////////
 var dataset = [ 5, 10, 15, 20, 56 ];
 d3.select("body").selectAll("p").data(dataset).enter().append("p").text(function(d){
 	return "number of people in the movie theater " + d;
-});
+}).style("color", "red");
 
 
