@@ -1,6 +1,6 @@
 console.log("connect");
 
-d3.select("body").append("p").text("new paragraph")
+// d3.select("body").append("p").text("new paragraph")
 
 // can also be written like this
 // var body = d3.select("body");
@@ -28,16 +28,18 @@ d3.select("body").append("p").text("new paragraph")
 
 // or
 
-var dataset = [ 5, 10, 15, 20, 56 ];
-d3.select("body").selectAll("p").data(dataset).enter().append("p").text(function(d){
-	return "number of people in the movie theater " + d;
-}).style("color", function(d) {
-    if (d > 15) {   //Threshold of 15
-        return "red";
-    } else {
-        return "black";
-    }
-});
+// var dataset = [ 5, 10, 15, 20, 56 ];
+// d3.select("body").selectAll("p").data(dataset).enter().append("p").text(function(d){
+// 	return "number of people in the movie theater " + d;
+// }).style("color", function(d) {
+//     if (d > 15) {   //Threshold of 15
+//         return "red";
+//     } else {
+//         return "black";
+//     }
+// });
 
+
+var dataset = [ 5, 10, 15, 20, 56 ];
 
 
