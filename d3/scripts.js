@@ -1,5 +1,12 @@
 console.log("connect");
 
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+//     $( ".bg" ).append( '<p> abmnasbmabnsmbsa <?p>' );
+// });
+
+/////////////////////////////////////////////////////////////////
+
 // d3.select("body").append("p").text("new paragraph")
 
 // can also be written like this
@@ -40,6 +47,12 @@ console.log("connect");
 // });
 
 
+// correction: added div with container class in the html. 
+// appending div elements with bargraph class to the container div. 
 var dataset = [ 5, 10, 15, 20, 56 ];
+d3.select(".container").selectAll("div").data(dataset).enter().append("div").attr("class", "bargraph")
+
+
+
 
 
