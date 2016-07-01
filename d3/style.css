@@ -3,4 +3,5 @@ div.bargraph{
 	display: inline-block; 
 	height: 100px; 
 	width:10px;
+	margin-right: 5px;
 }

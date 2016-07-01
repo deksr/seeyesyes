@@ -47,7 +47,7 @@ console.log("connect");
 // });
 
 // disection of style method: style();
-// style ("color" "red") is equivalent to writing a style tag witin an element. like this 
+// style ("color", "red") is equivalent to writing a style tag witin an element. like this 
 // <style = "color = red">
 
 
@@ -57,10 +57,13 @@ console.log("connect");
 // adding the style method to each data
 var dataset = [ 5, 10, 15, 20, 56 ];
 d3.select(".container").selectAll("div").data(dataset).enter().append("div").attr("class", "bargraph").style("height", function(d){
-	return d + 'px';
+	// return d + 'px';
+	// with just return d + 'px'; - the rendered graph is a small bargraph we can manipulate how it looks without touching the data by manipulating how big it should be displayed.
+	var manipulateHeight = d * 5;
+	return manipulateHeight + 'px';
 })
 
-
+// .style("margin-right", "2px" ) added this in style sheet
 
 
 
