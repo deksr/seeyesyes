@@ -55,17 +55,31 @@ console.log("connect");
 // correction: added div with container class in the html. 
 // appending div elements with bargraph class to the container div. 
 // adding the style method to each data
-var dataset = [ 5, 10, 15, 20, 56 ];
+// var dataset = [ 5, 10, 15, 20, 56 ];
+// d3.select(".container").selectAll("div").data(dataset).enter().append("div").attr("class", "bargraph").style("height", function(d){
+	// return d + 'px';
+	// with just return d + 'px'; - the rendered graph is a small bargraph we can manipulate how it looks without touching the data by manipulating how big it should be displayed.
+// 	var manipulateHeight = d * 5;
+// 	return manipulateHeight + 'px';
+// })
+
+// .style("margin-right", "2px" ) added this in style sheet
+
+
+
+
+
+
+var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
+                14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
+                24, 18, 25, 9, 3 ];
+
 d3.select(".container").selectAll("div").data(dataset).enter().append("div").attr("class", "bargraph").style("height", function(d){
 	// return d + 'px';
 	// with just return d + 'px'; - the rendered graph is a small bargraph we can manipulate how it looks without touching the data by manipulating how big it should be displayed.
 	var manipulateHeight = d * 5;
 	return manipulateHeight + 'px';
 })
-
-// .style("margin-right", "2px" ) added this in style sheet
-
-
 
 
 
