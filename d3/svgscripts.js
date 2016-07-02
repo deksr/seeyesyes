@@ -8,6 +8,11 @@ console.log("svg-file-connect");
  var svg = d3.select(".svgbox").append("svg").attr("width", 500).attr("height", 500);
 
 
+// note: height and width can be stored in variables like this
+// var w = 500
+// var h = 500
+//  var svg = d3.select(".svgbox").append("svg").attr("width", w).attr("height", h);
+
 
 // 3. binding the data
 // var dataset = [ 5, 10, 15, 20, 25 ];
