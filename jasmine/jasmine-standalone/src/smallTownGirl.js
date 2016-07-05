@@ -6,9 +6,13 @@ function firstSong() {
 }
 
 function secondSong() {
-  return "Yo gotti- Cold blood";
+  return "Baby come back - Player";
 }
 
 function thirdSong() {
-  return "why ?? ?";
+  return "Rod Stewart";
+}
+
+function addNumbers(a, b){
+ return a+b;
 }
