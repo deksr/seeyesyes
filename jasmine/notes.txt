@@ -1,2 +1,0 @@
-add a file (jasmine-standalone > src > smallTownGirl.js)
-ass spec file (jasmine-standalone > src > smallTownGirl_spec.js)
