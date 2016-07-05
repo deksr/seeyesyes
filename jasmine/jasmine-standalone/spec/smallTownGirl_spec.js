@@ -9,6 +9,6 @@ describe("Hits-the-chord playlist", function() {
     expect(secondSong()).toEqual("Yo gotti- Cold blood");
   });
   it("should play third song", function() {
-    expect(thirdSong()).toEqual("?????");
+    expect(thirdSong()).toEqual("why is this not working?");
   });
 });
