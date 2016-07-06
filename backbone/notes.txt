@@ -1,0 +1,11 @@
+MODELS
+Models can be created by extending `Backbone.Model`
+The initialize() method is called when a new instance of a model is created.
+
+Model.get() provides easy access to a model’s attributes.
+Model.set() sets a hash containing one or more attributes on the model.
+
+If you need to read or clone all of a model’s data attributes, use its toJSON() method.
+
+
+VIEWS
