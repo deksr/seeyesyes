@@ -1,0 +1,66 @@
+what is REST? 
+http://stackoverflow.com/questions/10418105/what-does-representational-state-transfer-means-rest
+
+The architecture:
+http://www.drdobbs.com/web-development/soa-web-services-and-restful-systems/199902676
+
+Difference in REST and SOAP?
+https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAKuAAAAJDcyMGY3NTYxLWRiMzctNDQxNi05NDJlLTgxMDY1OThjODJhMQ.png
+
+http://image.slidesharecdn.com/webservices-140608115513-phpapp01/95/web-services-a-practical-approach-7-638.jpg?cb=1402228768
+
+https://www.ibm.com/developerworks/library/ws-restful/
+
+Application state and resource state?
+http://stackoverflow.com/questions/27054277/how-to-distinguish-application-state-and-resource-state
+
+Difference in REST and CRUD?
+http://programmers.stackexchange.com/questions/120716/difference-between-rest-and-crud
+
+what is an API?
+https://www.quora.com/What-is-an-API-4
+
+What is a REST API?
+https://www.youtube.com/watch?v=7YcW25PHnAA
+
+Difference in API and REST API?
+http://stackoverflow.com/questions/10594900/difference-between-an-output-of-a-normal-api-and-a-rest-api
+
+Some node proxis?
+https://github.com/nodejitsu/node-http-proxy
+
+what is a JSONP?
+http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about
+
+What is the difference between a web server and a web host?
+https://www.quora.com/What-is-the-difference-between-a-web-server-and-a-web-host
+
+What is a web application server?
+http://www.resultantsys.com/index.php/general/what-is-a-web-application-server/
+
+Difference between proxy server and reverse proxy server
+http://stackoverflow.com/questions/224664/difference-between-proxy-server-and-reverse-proxy-server
+
+same origin policy?
+http://stackoverflow.com/questions/3076414/ways-to-circumvent-the-same-origin-policy/3076648#3076648
+
+
+How to scrape using jquery?
+http://stackoverflow.com/questions/5667880/simple-screen-scraping-using-jquery
+
+http://mherman.org/blog/2013/10/20/handling-ajax-calls-with-node-dot-js-and-express-scraping-craigslist/#.V37SypMrKHo
+
+https://www.digitalocean.com/community/tutorials/how-to-use-node-js-request-and-cheerio-to-set-up-simple-web-scraping
+
+https://scotch.io/tutorials/scraping-the-web-with-node-js
+
+
+
+http request:
+https://www.kirupa.com/html5/making_http_requests_js.htm
+
+some ajax examples:
+http://stackoverflow.com/questions/34739323/using-jquery-to-retrieve-json-via-ajax
+
+Using AJAX in wordpress
+https://www.smashingmagazine.com/2011/10/how-to-use-ajax-in-wordpress/

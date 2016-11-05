@@ -68,7 +68,16 @@ var numbers = [1, 2, 3, 4, 5, 6, 7]
 
 
 
+// simple loop with pop example 
 
+  var allArrays = [['a', 'b'], ['c'], ['d', 'e', 'f']]
+  var emptarry = [];
+
+  for(var j = 0; j < allArrays.length; j++) {
+     // console.log("first" + " "+  allArrays[j].pop());
+     emptarry.push(allArrays[j].pop())
+     console.log(emptarry)
+}
 
 
 

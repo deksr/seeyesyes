@@ -1,0 +1,24 @@
+001-responsives: responsive design based on different media. No bootstraps used.
+
+002-doms: This is DOM manipulation.
+
+003-event: Javascript event listeners.
+
+004-methods: javascript in-built methods.
+
+005-datetime: date and time setting in javascript
+
+006-objectified: javascript objects
+
+007-jQ: Jquery
+
+008-d3: learning d3
+
+009-svg-anim: svg animation
+
+010-advancedjs: Function and call backs
+
+011-jasmine: testing
+
+ 
+

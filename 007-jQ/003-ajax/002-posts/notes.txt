@@ -1,0 +1,7 @@
+difference in 302 and 303?
+
+http://serverfault.com/questions/391181/examples-of-302-vs-303?newreg=8c835149a4fe48acb152ee66f165f4b6
+
+provision headers error:
+http://stackoverflow.com/questions/21177387/caution-provisional-headers-are-shown-in-chrome-debugger
+
