@@ -1,0 +1,17 @@
+Note this folder already has eslint just do subl ~/.eslintrc
+
+If not then:
+npm install -g eslint
+Open Package Control: ⌘ + ⇧ + p (command + shift + p)
+Select Package Control: install package
+Select and install: SublimeLinter and SublimeLinter-contrib-eslint
+touch .eslintrc
+subl ~/.eslintrc
+Copy over the configuration object above
+Save and close .eslintrc
+
+Using ESLint:
+You can select ESLint's appearance in the bottom of tools.
+
+^ + ⌘ + l - Lint this view. Show the warnings and errors.
+^ + ⌘ + a - View all errors. List each of ESLint's full complaints.
