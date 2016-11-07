@@ -1,311 +1,480 @@
-# Living within the Box
+![](http://www.w3devcampus.com/wp-content/uploads/logoAndOther/logo_JavaScript.png
+)
+# Intro to JavaScript Data Types, Variables & Arrays
 
-![Transmogrify](http://www.lovine.com/hobbes/comics/chimage.php?image=transmogrifier2.gif)
+| Learning Objectives |
+| :--- |
+| Identify JavaScript's Data Types |
+| Define Variables |
+| Create and Manipulate Arrays |
 
-## CSS Box Model & Positioning
+## Roadmap
 
-| Lesson Objectives - SWBAT:               |
-| :--------------------------------------- |
-| Explain how margin, border, padding, and content relate to one another in the box model |
-| Adjust element spacing using padding and margin |
-| Describe the difference between block, inline, and inline-block elements |
-| Explain the difference between and use cases of static, relative, absolute, and fixed positioning |
-| Use floats to position/remove content from the standard document flow. |
-| Create a page with multicolumn layout    |
-| Identify the element's boxes when viewing a website. |
-| Use Chrome's Web Inspector to explore an element's box properties. |
+1. Intro to JavaScript (5 mins)
+2. Explore JavaScript's Data Types (25 mins)
+3. Variables (10 mins)
+4. Arrays (35 mins)
+5. Further Study
 
-##### Road Map
+### 1. Intro to JavaScript<small> (5 mins)</small>
 
-1. Intro to the Box Model
-2. The Box Model and Its Components
-3. Display
-4. Positioning
-5. Floats and Clears
-6. Outro
+> _Atwood's Law:_<br>
+> "Any application that can be written in JavaScript will eventually be written in JavaScript."<br>
+> _\- Jeff Atwood, co-founder of Stack Overflow_
+ 
+![](http://static3.businessinsider.com/image/55d4f958bd86ef13008b46b0-1200/and-for-good-measure-heres-a-look-at-how-those-rankings-have-changed-over-the-past-seven-years.jpg)
 
-## Intro to the Box Model
+**? - Any thoughts as to why JavaScript has become so popular?**
 
-![Panels](http://www.collectivenext.com/sites/default/files/styles/medium/public/blog-images/understanding-comics-p61.png?itok=iibrRHw2)
+#### JavaScript's Role
 
-I'm going to first make a crazy comparison, and follow it up with a wild
-assumption.
+The main purpose of JavaScript is to provide behavior to our web applications via client-side script.
 
-First, for the comparison:
+![](http://csharpcorner.mindcrackerinc.netdna-cdn.com/UploadFile/47548d/introduction-of-javascript/Images/JavaScript%20Introduction.jpg)
 
->  *Website design is quite similar to comics' panel layout.*
->
-> — Ezra Arez Raez, 2016
+>The popularity of a technology known as _Node.js_ has resulted in JavaScript also being used on the server-side. We'll learn more about _Node.js_ in week 7.
 
-Now for the wild assumption: open chrome and visit any site.
+#### A Few Facts About JavaScript:
 
-Now, if you'll relax your eyes as you stare into that website, I'm sure you'll
-make out a number of rectangles in that site - go ahead, count them! In fact,
-turn on your chrome inspector to prove it!
+- Created in 10 days in 1995 by Brendan Eich.
+- Not to be confused with Java (although both have syntaxes based upon the "C" programming language).
+- JavaScript is an implementation of ECMAScript, a standard maintained by the European Computer Manufacturers Association).
+- Currently, the version that is **fully** implemented by browsers is ECMAScript 5. However, the newest version, ES2015 (formerly known as ES6), is well on it's way to being implemented. [This website](http://kangax.github.io/compat-table/es6/) reports the implementation status in all major browsers. ES2015 adds lots of new features and we will briefly cover a tidbit of them in WDI.
+- JavaScript's an object oriented programming (OOP) language despite not having _classes_ used in "classical" OOP languages. However, JS has recently jumped on the "class" bandwagon with ES2015.
 
-I can assume this because, much like comics - predominantly relying on the
-rectangular panel for the majority of their page layout - **the web is made of
-rectangles.**
+### 2. Explore JavaScript's Data Types<small> (25 mins)</small>
 
-We use HTML to decide what rectangles we want and what should go in them.
+JavaScript is an _untyped_ language. This means that we do not explicitly specify the _type_ of data we are working with. In _strongly typed_ languages such as Java, data types are explicitly specified. Coming soon near you however, is a language called _TypeScript_, which adds strong typing to JS.
 
-We use CSS to decide how they should look (recall this morning's lesson), and
-where they should go.
+However, although we don't specify data types in JavaScript, every piece of data still has a **type**!  The type being defined by the actual type of data we are using in a given scenario.  For example, when we assign some text to a variable like this:
 
-##### Assets
+```js
+var myName = "Joe Cool";
+```
+the variable `myName` **would have a data type of ________?**
 
-Today we'll be working from the `starter_code/` directory.
+Currently, JavaScript has six data types (ES2015 adds a new _symbol_ data type).
 
-## The Box Model and its Components
+![](http://slidenerd.com/wp-content/uploads/2014/09/Snap-2014-09-27-at-10.28.06.png)
 
-You may be familiar with the following diagram:
+Let's examine each of these...
 
-![box-model](http://s6.postimg.org/gi8r6c341/css_box_model.png)
+#### Setup
 
-Open Chrome's Dev Tools by using cmd+opt+i.
+We are going to use Chrome's DevTools in this lesson to inspect and manipulate data.
 
-Click "Elements" (in the dev tools toolbar), then `<div id="box-model">` in the
-page source. Find the multicolored rectangles at the bottom of "Styles."
+Open Chrome and press `command+option+j` to open the _console_. The _console_ allows us to enter JS expressions and statements.
 
-- **Margin** - The empty area around a border, where we don't want anything else
-  on the page to render.
-- **Border** - A solid (or dashed, or dotted, etc.) line around the padding and
-  content. Can be zero pixels (invisible) or bigger.
-- **Padding** - The area between the border and the content, where we can give
-  the content some breathing room
-- **Content** - The contents of the box; also what we size when we set a width
-  and height in CSS.
-- **Box-Sizing** - `box-sizing` is an interesting property. By default it's set
-  to `content-box`, but we often assume sizing works in terms `border-box`. The
-  difference is subtle but important. `content-box` sets the `height` and
-  `width` properties of a box to the content, whereas `border-box` assigns them
-  to border, therefore including the border's size and padding.
+#### Explore JavaScript's Data Types
 
-Let's add to our `.box-model` class and see what these do:
+##### string
 
-``` css
-.box-model {
-  margin: 50px auto;
-  border: 3px solid red;
-  padding: 50px;
-  width: 100px;
+A _string_ represents textual data with zero or more characters wrapped by single or double quotation marks such as `"John"` or `'Jane'`. A pair of quotes with nothing between them is still a _string_ - an _empty string_.
+
+```
+> 'Hello World'
+< "Hello World"
+> typeof "I'm a string"
+< "string"
+```
+
+Notice that the `typeof` operator itself always returns a string describing the data type.
+
+>ES2015 Note: In addition to using single and double quotes to delimit a string, ES2015 adds a a third way by using the back-tick character to create what's called a _template string_.
+
+##### number
+
+A _number_ represents a numeric value.
+
+Unlike many other programming languages, there is no distinction between integer (`15`, `3`, etc.) and floating-point/decimal types (`17.24`, `3.1416`, etc.).
+
+Internally, JS represents all numbers as floating-point values.
+
+```
+> 15
+< 15
+> typeof 15
+< "number"
+> typeof 12.34
+< "number"
+> typeof '12.34'  // what will this return as the type?  
+```
+
+##### boolean
+
+Whereas strings and numbers can have a virtually unlimited number of different values, the _boolean_ data type only has two possible values: __true__ and __false__.
+
+<hr>
+**Before moving on to more data types, lets pair up and think of a couple examples where we might use each of the three data types we've covered thus far (string, number & boolean) to represent data in our programs.<br><br>For example, we would represent a person's name in our program using a _string_ - right?<br><br>In five minutes, I'll ask you to share what you've come up with...**
+<br>
+
+**? - If we needed to store a person's _social security number_, would you use a number or a string? Why?**
+
+<hr>
+
+Let's continue looking at the other data types...
+
+##### null
+
+The _null_ data type has only one value: __null__.
+
+We often assign the value _null_ to a variable to represent the fact that it has no "real" value :)
+
+```
+> typeof null
+< "object"  // Fail! Remember, JS was written in 10 days by one dude!
+```
+
+##### undefined
+
+A variable that has not been assigned a value is of type _undefined_.
+
+Also, a function by default returns _undefined_ if a value was not returned by it.
+
+Lastly, you will see _undefined_ a lot in the console when it evaluates an expression or statement that does not return a value.
+
+```
+> typeof undefined
+< "undefined"
+> console.log('hello')
+  "hello"
+< undefined
+```
+
+##### object
+
+Virtually all programming languages have the concept of two classifications of data types:
+
+- **Primitive** data types
+- **Complex** data types
+
+Variables that hold a _primitive_ data type can hold only one value at a time. Therefore, the five data types that we've looked at thus far are classified as _primitive_ data types.
+
+That brings us to _complex_ data types. _Complex_ data types can be thought of as containers capable of holding several pieces of data.
+
+Accordingly, in JavaScript, the **object** data type is a _complex_ type.
+
+Typically, when we discuss _objects_ in JS, we are referring to plain vanilla _objects_ that have a collection of zero or more properties (key/value pairs) like this:
+
+- **Object**<br>`{name: 'Joe Cool'}`
+
+However, there are several other types of data we will work with that are special versions of the JS object.  Here they are:
+
+
+- **Array**<br>`[1, 2, 3]`
+- **Date**<br>`new Date()`
+- **RegExp**<br>`/.*/`
+- **Function**<br>`function() {}`
+
+Note that it is okay to refer to these as their own data type, for example, if asked what type of data `['cat', 'dog', 'fish']` is, it would be acceptable to answer "an array". However, _technically_, there are only six data types, and _array_ is not one of them :)
+
+We will learn more about _objects_ in the next lesson.
+
+For now, let's just verify what `typeof` returns:
+
+```
+> typeof {course: 'WDI', cohort: 10}
+< "object"
+> typeof []
+< "object"
+> typeof /./
+< "object"
+```
+
+Although _functions_ are also considered objects (_callable objects_ to be exact), the `typeof` operator returns a more helpful data type:
+
+```
+> typeof function(){}
+< "function"
+```
+
+Yay, we've covered all six data types!
+
+>Note: There's an important concept of **value types** and **reference types**. These are discussed in the Further Study section of this lesson and will also be discussed later in WDI.
+
+**? - Do all variables have a data type?**
+
+### 3. Variables<small> (10 mins)</small>
+
+_Variables_ are ubiquitous in computer programming. Think of them as containers in memory for storing data.
+
+We name variables with _identifiers_ and we declare variables using the `var` keyword:
+
+```js
+var myVar;
+```
+>With ES2015, there's a new `var` in town known as `let` 
+
+**? - What is the identifier of the variable above?**
+
+We can also assign a value to a variable at the time we declare it by using the assignment operator `=`:
+
+```js
+var name = "Fred Flintstone";  // two birds with one stone!
+```
+
+and change it's value later...
+
+```js
+name = "Barney";  // note that we only declare a "var" once
+```
+
+Multiple variables can be defined in a single statement, separated by commas:
+
+```js
+var name = 'Wilma',
+    age,
+    town = 'Bedrock';
+
+// above is equivalent to
+var name = 'Wilma';
+var age;
+var town = 'Bedrock';
+```
+
+**? - What does the variable `age` equal?**
+
+##### Naming Variables
+
+In JavaScript, when naming variables, the convention is to name the identifiers using _Lower Camel Case_, e.g.,  `myLittleHouse`.
+
+Identifiers in JS:
+
+- Are case-sensitive!
+- Must begin with a letter
+- Can contain letters, digits, underscores, and dollar signs
+
+**? - Are the following valid variable declarations?**
+
+```
+var hello;
+Var car1 = 'BMW';
+var good_bye = "Adios " + "Muchacho";
+var car-2 = 'Toyota';
+var 1_person = 'Sally';
+```
+
+**Any questions regarding variables?**
+
+### 4. Arrays<small> (25 mins)</small>
+
+#### What are Arrays?
+
+- In JS, technically there is no "array" data type. Arrays are actually a special type of object.
+- Arrays are often the data structure of choice to hold a "list" of data items.
+- Each item in an array is called an _element_.
+- Elements can contain data of the same or different types, however, they most commonly hold the same type of data such as a list of strings.
+- Elements in an array can even be objects, functions, even other arrays!
+- Arrays dynamically grow and shrink in size as we add data to, and remove data from them.
+
+#### Creating Arrays
+
+There are two ways to create an array...
+
+```js
+// using a Constructor Function (less common syntax)
+var nums = new Array(2, 4, 18);
+
+// using Array Literal syntax (recommended best practice)
+var nums = [2, 4, 18];
+```
+
+**IMPORTANT: In WDI, we will often show you alternative ways of doing things, including ways that are not necessarily the best or recommended way. Why do you think we do this?**
+
+#### Accessing the Elements in an Array
+
+We access elements in an array using **bracket notation**, passing in the "index" of the element you want to access:
+
+```js
+var superheroes = ['Batman', 'Swamp Thing', 'Captain Marvel'];
+var firstHero = superheroes[0];  // 'Batman'
+```
+
+Since when is `0` the first item in anything?  Since computer science came along! Internally, programs prefer to think in terms of "offsets" in memory and we access the first item using an offset of zero - this is referred to as being "zero-based".
+
+**? - How would we access the element that contains the value "Captain Marvel"?**
+
+>FYI, the individual characters in a string can be accessed using bracket notation also - try it!
+
+#### Working with Arrays
+
+It's time to practice working with arrays.
+
+To start, in the console, create an array with several elements containing your favorite sports teams, animals, baby names, or whatever... Be sure to assign your array to a variable. You have 3 minutes...
+
+The following are most, but not all, of the methods available on array objects:
+
+1. `Array.push()`
+2. `Array.pop()`
+3. `Array.shift()`
+4. `Array.unshift()`
+5. `Array.concat()`
+6. `Array.indexOf()`
+7. `Array.lastIndexOf()`
+8. `Array.join()`
+9. `Array.slice()`
+10. `Array.splice()`
+
+Let's pair up and I'll divvy out these methods...
+
+Each pair will then have 5 minutes to research their assigned method.
+
+Be prepared to explain your findings with the class:
+
+- **What's the purpose of the method?**
+- **What is the return value of the method?**
+- **Is the original array mutated (changed)?**
+
+## Further Study
+
+### Data Type Classifications
+
+Part of becoming a developer is learning to talk like one. This of course requires learning the vocabulary of programming.
+
+When hanging with devs, you may hear some of the following lingo in regards to data types...
+
+#### Primitive Data Types
+
+Variables holding a **primitive** data type can hold only one value at a time.
+
+In JS, we can further group primitive data types into two sub-types:
+
+- Simple Data Types
+  - string
+  - number
+  - boolean
+
+- Special Data Types
+  - undefined
+  - null
+
+#### Complex Data Types
+
+Complex data types can be thought of as containers consisting of primitive data type values.
+
+Accordingly, the **object** data type is a complex type.
+
+>Note: You will come across **arrays** being referred to as a data type - and that's cool. In fact, your instructors may refer to arrays as if they are a data type. However, be aware that technically, arrays in JS are just special objects (as are functions).
+
+Complex data types are also referred to as **reference types**. This is because when we assign one object to another, we are simply assigning a "reference" to the original object, whereas primitive types copy their value when assigning one variable to another. Let's see this in action by copying the following in to the console:
+
+```js
+// primitives (value type)
+var x = 5;
+var y = x;
+console.log(x, y);
+x = 10;
+console.log(x, y);  // y is still equal to 5
+
+// complex (reference type)
+var o = {x: 5};
+var p = o;
+console.log(o, p);
+o.x = 10;
+console.log(o, p);  // p.x changed too!
+```
+
+Notice how the value of `y` did not change, yet object `p` did. Again, this is because `p` simply holds a reference, or points to, `o`.
+
+### Type Conversion
+
+JavaScript is very relaxed when it comes to data types. Contrary to non-dynamic languages, a variable can change its type.
+
+```js
+var m = 15;  // I'm a number
+m = 'hey';   // Now I'm a string!
+```
+
+#### Beware of Implicit Conversion
+
+JavaScript is friendly and tries to help us whenever it can. However, we all know that sometimes its better to be left alone.
+
+__Try adding a string to a number.  What did JS do?__
+
+__Now try comparing a number and a string containing the same digits using the equality (`==`) comparison operator__
+
+```js
+13 == "13"  // returns true!
+```
+
+This is why, unless there's a reason not to, use the _strict equality operator_ (`===`) as it will not perform type conversion. 
+
+#### Explicit Type Conversion
+
+We can easily convert a number to a string using the `toString()` and `toFixed()` methods:
+
+```js
+var n = 123.456;
+var s1 = n.toString();  // "123.456"
+var s2 = n.toFixed(2);  // "123.46"
+```
+
+There are a couple of handy methods used to convert strings to numbers: `parseInt()` and `parseFloat()`
+
+```js
+var s = "1234.567";
+var n1 = parseInt(s);  // 1234
+var n2 = parseFloat(s);  // 1234.456
+```
+Remember however, that the data type for both flavors, integer and float (short for floating-point), is _number_.
+
+### Array - Practice
+
+#### Simple Iteration with a `for` loop
+
+Iterating through the elements of an array, one at a time, is a very common practice in programming.
+
+We can use a `for` loop to iterate over the elements of an array like this:
+
+```js
+var teams = ['Bruins', 'Cal Bears', 'Ravens', 'Ducks'];
+for (var i = 0; i < teams.length; i++) {
+  console.log(teams[i]);
 }
 ```
 
-#### Love thy Dev Tools
+However, `for` loops are sooooo old school. Take a look at the next section to see how the cool kids iterate through an array. 
 
-Chrome's Dev Tools are one of the nicest things to ever happen to developers.
-This is because we can alter our webpages __while__ viewing them in the browser!
+#### Iterating Over an Array's Elements
 
-Take the next few minutes to play with the following:
+JavaScript arrays have several advanced _iterator methods_.
 
-- **Margins** - Remember that the values for a single margin property works
-  clockwise from the top, `margin: Abovepx Rightpx Belowpx Leftpx;`
-- **Borders** - Find new textures and sizes.
-- **Padding** - See what negative values can accomplish.
-- **Height, Width, and Box-Sizing** - See what these do to your box!
+These methods require a function be supplied as an argument, so they are a little more complex to work with UNTIL you get comfortable with functions in general, and functions being supplied as arguments.
 
-> Remember, if you've ever gone too far off the deep-end, simply refresh the
-page!
+As an example, lets look at the `forEach` method that we can use instead of a `for` loop to iterate the elements:
 
-## Display
-
-![inline vs block](http://netdna.webdesignerdepot.com/uploads/2012/08/boxmodel-block-vs-inline.png)
-
-At the heart of positioning is the `display` property. There are five values
-that greatly effect our webpage.
-
-1. An **inline** element renders without a line break above or below it, so that
-   other content is right next to it. __Inline elements can't be given a width,
-   height, or E/W margins.__
-2. A **block** element renders with a line break above and below it, so they
-   don't have anything next to them. By default, they take up the entire width
-   of their parent element. Block elements can be given a height and a width.
-3. An **inline-block** element is placed as an inline element (on the same line
-   as adjacent content), but it behaves like a block element. This makes the
-   element a block box but will allow other elements to sit next to it on the
-   same line.
-4. If you assign **none** as the value of the display, this will make the
-   element and its content disappear from the page entirely!
-5. **flex** is a new and interesting display option for CSS3. We'll cover it in 
-   greater detail in a later lesson on responsive CSS, so I don't want to spend 
-   too much time on it now. However just to mention, it reduces the need for 
-   floats (see below in "Positioning") and removes the margins between things. 
-   It essentially makes your positioning more *flexible*, while simultaneously 
-   making your site less accommodating (`display: flex;` will not work with 
-   browsers IE9 and older).
-
-Lets see the difference between inline, block, and inline-block by adding these
-rules to our stylesheet.
-
-``` css
-.inline-vs-block {
-  border: 3px dotted gray;
-}
-
-.inline {
-  display: inline;
-}
-
-.block {
-  display: block;
-}
-
-.inline-block {
-  display: inline-block;
-}
+```js
+var teams = ['Bruins', 'Cal Bears', 'Ravens', 'Clippers'];
+teams.forEach(function(el) {
+    console.log(el);
+});
 ```
 
-#### Practice Display
+Would you agree that this code's intention is clearer than that of the for loop?
 
-In `<div id="inline-vs-block">`, notice what happens when you change width,
-height, margin, and padding for inline, block, and inline-block elements.
+The following are a couple of other iterator methods for you to research and practice with:
 
-Take a few minutes to alter these in the Chrome Dev Tools.
+- `Array.filter()`
+- `Array.map()`
 
-## Positioning
+Finding a particular element within an array, or it's index (position) within the array, is very common. These two "newer" array methods work great for this task:
 
-![](http://66.media.tumblr.com/tumblr_lmvr2tIqya1qi9hg0o1_500.gif)
+- `Array.find()`
+- `Array.findIndex()`
 
-The `position` property in CSS allows the content to move around the page in
-four separate fashions: static, relative, absolute, and fixed.
+Feel free to use these arrays to practice with:
 
-##### Static Positioning
-
-HTML elements are `position: static` by default. A "static positioned" element
-is always positioned according to the normal flow of the page and are not
-affected by the top, bottom, left, and right properties.
-
-##### Relative Positioning
-
-Declaring `position:relative` allows you to position the element top, bottom,
-left, or right relative to where it would normally occur.
-
-##### Absolute Positioning
-
-Setting `position: absolute` on an element lets you position it according to
-the edges of its parent element. This has the side effect of removing it from
-the flow – that is, other elements will act like it isn't there.
-
-##### Fixed Positioning
-
-An element with `position: fixed` is positioned relative to the edges of the
-browser window.  It will not move even if the window is scrolled, so a fixed
-positioned element will stay right where it is.
-
-### CSS Directions
-
-Siblings to the `position` property, the `left`, `right`, `top`, and `bottom`
-properties are known as the CSS Directions. By Default, they're set to `auto`,
-and these properties do nothing while `position: static;`. They move an element
-by adding a pixel amount to the respective direction between it and the nearest
-element or border.
-
-Again, let's see what happens when we add these new position properties to our
-code (go ahead and overwrite classes `.spacing container`, `.one`, `.two`,
-`.three`, and `.four`).
-
-``` css
-.spacing-container {
-  height: 500px;
-  width: 500px;
-  background-color: gray;
-  position: relative;
-}
-
-.one {
-  background-color: red;
-  position: static;
-}
-
-.two {
-  background-color: blue;
-  position: relative;
-  top: -100px;
-  left: 100px;
-}
-
-.three {
-  background-color: green;
-  position: absolute;
-  top: 200px;
-  left: 200px;
-}
-
-.four {
-  background-color: black;
-  position: fixed;
-  right: 100px;
-  top: 80%;
-}
+```js
+var names1 = ["Plato", "Linus", "Rashad", "Aidan", "Hunter", "Rudyard", "Kaseem", "Armand", "Clayton"];
+var names2 = ["Ferris", "Erich", "Alvin", "Brody", "Justin"];
 ```
 
-## Floats
+## References
 
-The float property defines whether or not an element should stick to the side
-and contain it's own line.
+[MDN JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-![Float Layout](https://cloud.githubusercontent.com/assets/40461/8234489/3b61ef02-15d4-11e5-8864-435fb6e0c3cc.png)
+0
 
-Note that "absolutely positioned" elements ignore the float property as they are
-removed from the normal document flow - same with "fixed" elements.
-
-Floated elements remain a part of the flow of the web page.
-
-There are four valid values for the float property. "Left" and "right" float
-elements those directions, respectively. "None" (the default) ensures the
-element will not float and "inherit" which will assume the float value from that
-element's parent element.
-
-### Clear
-
-As a sister attribute to Float, `clear` allows an element to ignore float rules,
-and move itself *past* the float. You can set a clear to `left`, `right`,
-`both`, and `none` (default).
-
-Compare these two photos. A footer with `clear:none;`.
-
-![](https://css-tricks.com/wp-content/csstricks-uploads/unclearedfooter.png)
-
-Versus a footer with `clear: both` or `clear: left`:
-
-![](https://css-tricks.com/wp-content/csstricks-uploads/clearedfooter.png)
-
-Finally, let's see how these floats work!
-
-``` css
-.img-example {
-  float: left;
-  width: 400px;
-}
-
-.columns > div {
-  float: left;
-  width: 50%;
-}
-```
-
-## Outro
-
-Like drawing comics, CSS positioning takes time to master. It can be a struggle
-early on, but consistent practice will eventually lead to full grokking.
-
-As you can see, viewing html elements as the rectangular panels that they are
-will assist you in conquering this tricky CSS beast.
-
-##### Final Questions
-
-- Explain the difference between `margin`, `border`, `padding`, and `content`.
-- How do floats work with clears to create a multicolumn layout?
-- Compare inline-block, block, and inline.
-
-#### References
-
-[Box-Sizing](https://css-tricks.com/box-sizing/)
-
-[All About Floats](https://css-tricks.com/all-about-floats/)
-
-[CSS Positioning Tutorial](http://www.barelyfitz.com/screencast/html-training/css/positioning/)
 
 
 [Click here to view as a presentation](https://presentations.generalassemb.ly/e4a2445216746d1fde4c6f5e93782bec#/1)
@@ -726,6 +895,7 @@ I'll give you a couple of minutes to review the following questions, meanwhile, 
 - Look into using the `switch` statement instead of `if...else` if you have more than three code paths and your conditionals always check the same variable.
 
 - Here's the documentation for the [switch statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+0
 
 
 ![](https://scalerablog.files.wordpress.com/2015/05/meme-functions.jpg
@@ -1050,3 +1220,320 @@ As you can see, there's a nifty `generateAcctNum` function in there and it's onl
 ## References
 
 [MDN Functions Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+0
+
+
+
+# The Tragedy of Obediah Jecht
+
+![curlies](images/curlies.png)
+
+## Objects in JavaScript
+
+| Lesson Objectives: SWBAT                     |
+| :------------------------------------------- |
+| Create JavaScript Objects using Object Literals |
+| Use JS Objects to Model Real World Objects |
+| Create nested (JS) Objects by referencing other (JS) Objects and Arrays. |
+| Delete properties from (JS) Objects at run-time. |
+| Define what "key-value" pairs and "properties" mean in reference to (JS) Objects. |
+| Identify the properties and values in a given (JS) Object. |
+| Reference or update a value in a (JS) Object by its property. |
+
+## Roadmap
+
+1. Intro to Object Oriented Programming
+2. Creating Objects - the Birth of Obediah Jecht
+3. Designing Objects - the Life of Obediah Jecht
+4. Removing Properties from Objects - Obediah Jecht's Tragic Epiphany
+5. Outro
+
+## Intro to Object Oriented Programming (OOP)
+
+As web developers, we practice Object Oriented Programming techniques. 
+With OOP, our programs are crafted from objects, which have data and 
+behavior, and are used to model real world objects.  During the 
+program's execution, these objects interact with each other to 
+accomplish the programming goal.
+
+**When have you seen real world objects modeled in a website?**
+
+## Creating Objects - The Birth of Obediah Jecht
+
+<img alt="object birth comic" src="images/baby-object.jpg" width=350px>
+
+> Obediah, son of Obayashi and Obedience Jecht, came into this world as 
+any other, just the shell of who he would become:
+
+`{}`
+
+>  Moments after his birth, the Jechts wanted to give their son a name, 
+one that made their family proud. Of course, he was given the family 
+name:
+
+`lastName: "Jecht"`
+
+> …but he was also given a strong first name.
+
+ `firstName: "Obediah"`
+
+> However, Obediah is a long name and at the time, a common one too. He needed a unique nickname, one so odd that he'd have no problem being seen as an individual:
+
+``` javascript
+var obJecht = {
+  firstName: "Obediah",
+  lastName: "Jecht",
+  age: 0,
+  hair: null
+};
+```
+
+#### Object Literal Syntax …and the World Met Obediah
+
+Let's look at Obediah and how he shows a model of a brand new bouncing 
+baby boy.
+
+Our Obediah was born using an __object literal__. When we need a 
+single object, this is a great way of providing it. Simply name the 
+variable, and assign it to an empty object, like so:
+
+`var emptyObject = {};`
+
+Alternatively, you can fill that object when defining it:
+
+``` javascript
+var filledObject = {
+  firstKey: true,
+  secondKey: "this is a value"
+};
+```
+
+Take a look at the `filledObject`. As you can see, Javascript objects 
+contain a collection of zero or more undordered _properties_.
+
+__Properties__ have two features:
+
+- a __key__ (alternatively known as a _name_)
+- a __value__
+
+Together, these are known as __key:value__ pairs. Within a JS object, 
+the _key_ and _value_ are separated by a colon, and the _properties_ are 
+separated by commas. A _value_ can be any type of data.
+
+**What kinds of types of data do we know about?**
+
+In the case of Obediah, we have two two `String` values for our 
+`firstName` and`lastName` keys, and a `Number` value for our `age` key.
+
+When properties contain data (eg. `lastName`, `firstName`, and `age`) 
+they're referred to as __attributes__.
+
+A _value_ can also be a function. We'll learn more about this later, but 
+just know that a property is called a __method__ when its value is a 
+function.
+
+Both _methods_ and _attributes_ are _properties_. Additionally, Objects 
+in JS are dynamic, meaning their properties can be changed, added & 
+removed during runtime.
+
+#### Questions!
+
+1. What is the name for `{}` in `var x = {};`?
+2. A property is made up of a _______ _______ pair.
+3. What's the difference between an attribute and a method?
+
+## Designing Objects - the Life of Obediah Jecht
+
+![](images/abnermeaning.jpg)
+
+> As time went on, Obediah grew up.
+
+`obJecht.age += 5;`
+
+**This is what we mean by objects are dynamic!**
+
+> And he learned to yell for his momma:
+
+``` javascript
+obJecht.callForMomma = function() {
+  alert('MOMMY!!');
+};
+```
+
+`obJecht.callForMomma` is a _custom method_ created by us - it's like 
+any other function, but attached to `obJecht` under the name 
+`callForMomma`.
+
+> His bald head became a thick mane of brown hair:
+
+`obJecht['hair'] = true;`
+
+`obJecht.hairColor = "brown";`
+
+> And under that hair was an especially great mind.
+
+`obJecht.mind = "beautiful";`
+
+We declared a key and assigned a value to it. Now we have access to the 
+_attribute_ `hairColor: "brown"` as well as the _attribute_ 
+`mind: "beautiful"`. 
+
+As we see with `obJecht['hair']`, we can access properties of an object 
+with either a period or brackets containing quotes.
+
+All of these are _properties_ on Obediah, the `obJecht` object.
+
+#### The People and Things in Obediah's Life
+
+> For his 5th birthday, Obediah was given an adorable teddy bear,:
+
+``` javascript
+var teddy = {
+  cute: true,
+  eyes: "buttons"
+};
+```
+
+> Obediah loved his teddy bear, and often reminded others that it was 
+  HIS teddy bear.
+
+`obJecht.toys = teddy;`
+
+> He was also given a flashy yo-yo that he also took quite a bit of 
+pride in.
+
+- Can anyone tell me how I would build a `yoYo` object with two custom 
+  attributes?
+- How would we create a friend for Obediah?
+- Now that Obediah has two toys, how do you think we should store them 
+  in `toys` key?
+
+#### Referencing in Javascript Objects
+
+In Javascript, referencing to another object is as easy as setting a 
+_property_. For instance, `obJecht.toys` is simply a reference to the 
+teddy object. We can even access the teddy properties through `obJecht`.
+
+`obJecht.toys.eyes`
+
+We can also make arrays of other objects or primitive types.
+
+`obJecht.toys = [teddy, yoYo]`
+
+**How could we access the teddy's eyes through Obediah now?**
+
+When accessing variables within an array, you must refer to them by 
+their index.
+
+Since we've put teddy first, his index number is `0`. Remember that in 
+computing, index numbers start from 0.
+
+#### Obediah the Genius - Practice
+
+> As Obediah aged, he excelled in school, finishing high school three 
+> years early. 
+> 
+> But so ravenous was his hunger for knowledge, he decided to 
+> immediately head for Cambridge.
+
+###### Let's practice what we've learned:
+
+- Add 10 to the Obediah's age property
+- Create a _name_ `graduateHS` on the Obediah and set the *value* to `true`.
+
+> There Obediah started to read a lot of existential philosophy and 
+> built a set of troubling beliefs.
+
+- Create a __key__ `favAuthors` and assign it to an array of 
+  `"Nick Bostrom"`, `"Soren Kierkegaard"`, and `"Albert Camus"`.
+
+## Removing Properties from Objects - Obediah Jecht's Tragic Epiphany
+
+![](images/abnerunreal.jpg)
+
+> Obediah became obessessed with the idea of being, as he had a sneaking 
+>  suspicion about reality. One day he tells me:
+> 
+> "I believe the world is nothing but a series of objects in a program."
+> He murmured.
+> 
+> "By the very nature that we understand the idea of how to program a 
+> universe, it is therefore more likely that we are, in fact, in one of 
+> the infinite simulations of a universe than our actual universe."
+> 
+> He seemed unhinged and I couldn't follow his logic. I asked him to 
+> elaborate…
+> 
+> "Well look at this house!" bellowed Obediah as he pointed to my home. 
+> "It has 2 rooms, 3 bathrooms, and it's painted gray! They're just 
+> simple attributes when you think about it!"
+
+**Make that house into an object using object literal notation!**
+
+> "You see!" Obediah exlaimed. "Everything in nature is actually an 
+> object!"
+> 
+> And then Obediah became very serious and detached, sounding more 
+> disturbed by the second.
+> 
+> "In fact, the very nature of nature... our very understanding of the 
+> universe. We sit on a singular planet in an enormous galaxy… It's as 
+> if we don't move… we may as well just be data in a server… a server 
+> in the middle of a desert the size of the universe…"
+> 
+> "We're all just inanimate objects."
+
+`obJecht.mindBlown = true;`
+
+> I shook my friend Obediah, but he did not respond. We quickly ran him 
+> to the hospital, and the doctor confirmed our worst fears:
+> 
+> "Obediah's mind was blown and there is no coming back" reported the 
+> doctor.
+> 
+> Her voice shook with despair. "He'll begin to lose his memories soon…"
+> 
+> And sure enough, Obediah began to forget. First, he forgot the color 
+> of his flashy yo-yo.
+
+`obJecht.toys[1].color = null;`
+
+**Here we have not deleted the _property_, but instead set it to `null`.**
+
+Now the null value is attached to the `color` _key_.
+
+>  He forgot his favorite authors first.
+
+`delete obJecht.favAuthors;`
+
+Now, we've actually removed the property entirely. We can no longer 
+access `obJecht.favAuthors`.
+
+**How would we make Obediah forget his toys? What happens to `teddy` and `yoYo`?**
+
+> Eventually, he was no longer himself. He lost his identity.
+
+`obJecht = {};`
+
+We've now assigned him to an empty object. In runtime, this will wipe 
+the object of all custom properties.
+
+## Outro
+
+Now you know the great tragedy of Obediah Jecht. We all hope that in 
+time he comes back to us, but, knowing the JS compiler, it's unlikely.
+
+Let's go over what we learned:
+
+- How do we create an object using an object literal?
+- What is another term for an object property?
+- Object properties can contain what kinds of data types?
+
+#### References
+
+[MDN JS Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+[MDN Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
+
+[MDN Intro to Object-Oriented JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
+0
