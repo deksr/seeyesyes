@@ -20,5 +20,9 @@
 
 011-jasmine: testing
 
+012-debugging: some debugging used node.
+
+013-promises: Function and promises. This can be used instead of callbacks. Very neat this is
+
  
 

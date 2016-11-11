@@ -40,7 +40,7 @@ var secondWork = function(){
 }
 
 
-var thirdThird = function(){
+var thirdWork = function(){
 	return new Promise(function(resolve, reject){
   resolve('Third Work Done'); 
  })
@@ -52,10 +52,11 @@ firstWork().then(function(firstWorkResult){
 	return secondWork() //make sure to return the next function 
 }).then(function(secondWorkResult){
 	console.log(secondWorkResult)
-	return thirdThird() //make sure to return the next function
+	return thirdWork() //make sure to return the next function
 }).then(function(thirdWorkResult){
 	console.log(thirdWorkResult)
 })
+
 
 
 
