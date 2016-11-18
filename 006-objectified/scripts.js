@@ -1,5 +1,7 @@
 console.log("connected")
 
+//////////object literal////
+
 var topList = {
 	one: "Knox Brown - No slaves",
 	two: "Darkstar - Empress of Reformer",
