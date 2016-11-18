@@ -1,6 +1,7 @@
 console.log("connected")
 
 //////////object literal////
+// *****************************
 
 var topList = {
 	one: "Knox Brown - No slaves",
@@ -17,7 +18,26 @@ for (var prop in topList) {
   console.log(empty);
 }
 
+
+// functions can also return object literal 
+
+var someFunction = function(id, name){
+	console.log({
+		id: id,
+		name: name
+	})
+}
+
+someFunction(1, 'girl')// created an object
+
+
+
+
+
+
 //////////object constructor////
+// *****************************
+
 
 function newTrack(name, year, album, geners){
 	this.artistname  = name
@@ -29,5 +49,8 @@ function newTrack(name, year, album, geners){
 var popArtistOne = new newTrack("Rihanna", 2016, "Anti", "pop");
 console.log(popArtistOne )
 console.log(popArtistOne.artistname)
+
+
+
 
 
