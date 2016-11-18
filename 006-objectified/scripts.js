@@ -18,9 +18,21 @@ for (var prop in topList) {
   console.log(empty);
 }
 
+// way of iterating through objects
+var songs = [
+{ albumName: "babe", track: "you are my sweetheart" },
+{ albumName: "world", track: "we all live here" },
+{ albumName: "pencil", track: "use this sharpner" }
+]
+
+songs.map(function(eachone){
+	console.log(eachone.track)
+})
+
+
+
 
 // functions can also return object literal 
-
 var someFunction = function(id, name){
 	console.log({
 		id: id,
