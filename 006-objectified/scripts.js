@@ -30,8 +30,6 @@ songs.map(function(eachone){
 })
 
 
-
-
 // functions can also return object literal 
 var someFunction = function(id, name){
 	console.log({
