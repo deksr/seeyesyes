@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.14.0/babel.min.js"> </script>
+
+<script type="text/babel" data-presets="es2017, stage-3" data-plugins="syntax-async-functions">
+
+  // es5:
+  var multiply = function(x,y){
+  	console.log(x * y)
+  }
+
+
+  // es6:
+  var multiply = (x, y) => {
+  	console.log(x * y)
+  } //with two parameters
+
+
+
+ var greet = (someword) => {
+  	console.log('hello' + ' ' +someword)
+  }//with one parameter
+
+
+
+  var bark = () => {
+  	console.log('bark bark' );
+  }//with one parameter// bark();
+
+
+
+
+ // To return objects within arrow function, use a round bracket
+ // es5:
+  var setName = function(id, name){
+	 	console.log({
+	 		ids: id,
+	 		name: name
+ 	 	}) 
+  };
+
+  // es6:
+  var setName = (id, name) => ({ids: id, name: name})
+
+
+
+
+// mapping:
+ // es5
+	var smartPhones = [
+		{ name:'iphone', price:649 },
+		{ name:'Galaxy', price:576 },
+		{ name:'Galaxy Note', price:489 }
+	];
+
+
+  smartPhones.map(
+  	function(eachphone){
+  		console.log(eachphone.price)
+  	}
+  )
+
+  // es6:
+  smartPhones.map(
+  	(eachphone) => console.log(eachphone.name)
+  )
+
+
+
+ // using it on array
+ // es5
+  var classRoom =['ann', 'bob', 'kate', 'ann', 'ann'];
+  classRoom.filter(
+  	function(eachone){
+  		console.log(eachone === 'ann')
+  	}
+  )
+
+
+  // es6
+  classRoom.filter(
+  	(eachone) => eachone === 'ann'
+   
+
+  )
+
+</script>  
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
