@@ -62,8 +62,10 @@ console.log(popArtistOne.artistname)
 
 
 
-////// to check if two objects have same property name //////
+////// to check if two objects have same property name ////// 
 // *****************************
+//http://stackoverflow.com/questions/41133898/how-to-check-if-two-objects-properties-match/41134463#41134463
+
 
 var objectOne = {
   boy: "John",
@@ -78,18 +80,24 @@ var objectTwo = {
 }
 
 
+var emptyarray = []
 for (var propname in objectTwo ) {
   console.log(propname + " = " + objectTwo [propname]);
-
+	
+	// if objecttwo has property value mary then
   if (objectTwo [propname]=== "mary"){
-  	// console.log(propname);
+  	console.log(propname);
 
-    for (var pname in objectOne ){
-      console.log(pname + " = " + objectOne [pname]);
-    }
+    // loop through objectone and find out if object two's propname === objectone prop name. the pull the value out 
+  	if(Object.hasOwnProperty.call(objectTwo, propname)){
+  		emptyarray.push(objectOne[propname])
 
+  	}
+  
   }
 }
+
+console.log(emptyarray)
 
 
 
