@@ -62,5 +62,43 @@ console.log(popArtistOne.artistname)
 
 
 
+////// to check if two objects have same property name //////
+// *****************************
+
+var objectOne = {
+  boy: "John",
+  girl: "annie"
+}
+
+
+var objectTwo = {
+  boy: "andrew",
+  girl: "mary",
+  dog: "max"
+}
+
+
+for (var propname in objectTwo ) {
+  console.log(propname + " = " + objectTwo [propname]);
+
+  if (objectTwo [propname]=== "mary"){
+  	// console.log(propname);
+
+    for (var pname in objectOne ){
+      console.log(pname + " = " + objectOne [pname]);
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 
