@@ -111,6 +111,26 @@ mj({name: "mo"})
 
 
 
+// ***************
+
+var loophole = [[{name: "brad", age: 23}], [{name: "andy", age: 24}]]
+for (var i = 0; i < loophole.length; i++) {
+  var multidime =  loophole[i];
+  for (var j = 0; j < multidime.length; j++) {
+    console.log(multidime[j]) 
+  };
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 
