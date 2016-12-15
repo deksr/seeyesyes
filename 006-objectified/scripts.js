@@ -100,6 +100,17 @@ for (var propname in objectTwo ) {
 console.log(emptyarray)
 
 
+//if the oject sent is undefined and have to assign to variables then ....
+// ***************
+var mj = function(x, y, z) {
+    var xName = x && x.name;
+    var yName = y && y.name; 
+    var zName = z && z.name;
+}
+mj({name: "mo"})
+
+
+
 
 
 
