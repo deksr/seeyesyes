@@ -171,14 +171,24 @@ else{
 
 
 // to check if two arrays are same with timer
-window.setInterval(  function(){
-  var news1 = ["aftr that, she was", "z" ,"b"]
-  var news2 = ["after that, she was", "z", "b"]
+// window.setInterval(  function(){
+//   var news1 = ["aftr that, she was", "z" ,"b"]
+//   var news2 = ["after that, she was", "z", "b"]
 
-  if(news1.sort().join() === news2.sort().join()){
-    return;
-  }
-  else{
-    console.log("news1")
-  }
-}, 6000)
+//   if(news1.sort().join() === news2.sort().join()){
+//     return;
+//   }
+//   else{
+//     console.log("news1")
+//   }
+// }, 6000)
+
+
+
+var someobj =[{a: "j"}, {a: "k"}]
+console.log(someobj)
+for (var i = 0; i < someobj.length; i++) {
+  console.log(someobj[i])
+};
+
+
