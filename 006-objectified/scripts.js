@@ -124,30 +124,61 @@ for (var i = 0; i < loophole.length; i++) {
 
 
 // this loops at intervals
- window.setInterval(  function(){
-      var list =["a", "b", "c"]
-      for (var i = 0; i < list.length; i++) {
-        console.log(list[i])
-      };
-    }, 1000)
+ // window.setInterval(  function(){
+ //      var list =["a", "b", "c"]
+ //      for (var i = 0; i < list.length; i++) {
+ //        console.log(list[i])
+ //      };
+ //    }, 1000)
+
+
+ // make clones  var clone = myArray.slice(0);
+
+ // empty an array
+
+var arrayOne = ["a", "b", "c"];
+console.log(arrayOne.splice(0, arrayOne.length))
+console.log(arrayOne)
+
+
+// arrays breakdown:
+var arrayUrl = [' https:ahs','https:asjja']
+
+
+for (var i = 0; i < arrayUrl.length; i++) {
+  console.log(arrayUrl[i])
+};
+
+
+arrayUrl.forEach(function(e){
+  console.log('bla' + e)
+})
 
 
 
+// check if two arrays have same elements
+var news1 = ["after that, she was", "z" ,"b"]
+var news2 = ["after that, she was", "z", "b"]
+
+console.log(news1.sort())
+
+if(news1.sort().join() === news2.sort().join()){
+console.log("same array")
+}
+else{
+  console.log("different")
+}
 
 
+// to check if two arrays are same with timer
+window.setInterval(  function(){
+  var news1 = ["aftr that, she was", "z" ,"b"]
+  var news2 = ["after that, she was", "z", "b"]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  if(news1.sort().join() === news2.sort().join()){
+    return;
+  }
+  else{
+    console.log("news1")
+  }
+}, 6000)
