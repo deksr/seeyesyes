@@ -111,7 +111,7 @@ mj({name: "mo"})
 
 
 
-// ***************
+// ***************multi dimensional array looping
 
 var loophole = [[{name: "brad", age: 23}], [{name: "andy", age: 24}]]
 for (var i = 0; i < loophole.length; i++) {
@@ -120,6 +120,16 @@ for (var i = 0; i < loophole.length; i++) {
     console.log(multidime[j]) 
   };
 };
+
+
+
+// this loops at intervals
+ window.setInterval(  function(){
+      var list =["a", "b", "c"]
+      for (var i = 0; i < list.length; i++) {
+        console.log(list[i])
+      };
+    }, 1000)
 
 
 

@@ -59,4 +59,14 @@ firstWork().then(function(firstWorkResult){
 
 
 
+// Promise.all() how to use? 
+// When you get promise inside an array like this in console
+var somearray = [promise, promise]
+// use: Promise.all()
+// example:
+Promise.all(somearray).then(values => { 
+  console.log(values); 
+});
+
+
 
