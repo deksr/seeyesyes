@@ -192,6 +192,32 @@ for (var i = 0; i < someobj.length; i++) {
 };
 
 
+// to check if two arrays are same with timer
+
+  var news1 = ["data rough, she was", "z" ,"b"];
+  var news2 = ["data rough, she was", "z", "b"];
+  localstorageStuff = [];
+
+  if(localstorageStuff.length === 0){
+    localstorageStuff.push(news1); 
+    console.log("news1 pushed")
+  }
+  else{
+    console.log("news2")
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
