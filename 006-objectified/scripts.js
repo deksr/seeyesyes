@@ -196,15 +196,51 @@ for (var i = 0; i < someobj.length; i++) {
 
   var news1 = ["data rough, she was", "z" ,"b"];
   var news2 = ["data rough, she was", "z", "b"];
+
   localstorageStuff = [];
 
   if(localstorageStuff.length === 0){
-    localstorageStuff.push(news1); 
+    localstorageStuff.push(news1);
+
     console.log("news1 pushed")
   }
   else{
     console.log("news2")
   }
+
+
+  // bring data, check if local storage is empty then save in the local storage, make a copy called var abc and proceed to getting next data. If not empty then compare the data vs var abc. if they don't match then send a notification. If they do then return ?????
+
+
+
+
+
+
+  // how to make certain part of the code run at certain interval
+  // var moto = function(val){
+  //   if(val===5000) {
+  //    // at 5000 run this part of code
+  //    console.log("did stuff when called at 5000 time interval");
+  //  } else {
+  //  // at 6000 run this part of code
+  //    console.log("did stuff when called at 6000 time interval");
+  //  }
+  // }
+
+  // window.setInterval(moto.bind(this, 5000), 5000)
+  // window.setInterval(moto.bind(this, 10000), 10000)
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
