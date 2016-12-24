@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body class="whenIload">
+
+<input class="username"><br>
+<input class="password" type="password"><br>
+<input class="checkmeplz" type="checkbox"> Remember Me<br>
+<input class="thebut" type="button" value="Demo"> 
+
+
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+	<script>
+
+	
+  $( document ).ready(function() {
+    console.log( "ready!" );
+
+
+    $( ".thebut" ).click(function() {
+    	console.log("clicked")
+    	var theuserName;
+    	var thepasWord;
+
+    	if ($(".checkmeplz").is(":checked")){
+    		theuserName = $(".username").val();
+    		thepasWord = $(".password").val();
+    		console.log(theuserName  + thepasWord);
+    	}
+
+
+      // to set the local storage
+    	localStorage.setItem("names", JSON.stringify(names));
+
+     
+    });
+
+  });
+
+
+
+
+	</script>
+</body>
+</html>
