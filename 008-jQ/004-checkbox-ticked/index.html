@@ -6,7 +6,7 @@
 	<title></title>
 	<link rel="stylesheet" href="">
 </head>
-<body class="whenIload">
+<body>
 
 <input class="username"><br>
 <input class="password" type="password"><br>
@@ -28,21 +28,31 @@
   $( document ).ready(function() {
     console.log( "ready!" );
 
+    $(".checkmeplz").click(function() {
+    	console.log("hello there");
+    	console.log(this.checked);
+    	if(this.checked){
+    		//do something
+    	}
+    	else{
+    		do something
+    	}
+    })//this is to check if the checkbox is checked or not
+
 
     $( ".thebut" ).click(function() {
     	console.log("clicked")
+
     	var theuserName;
     	var thepasWord;
-
-    	if ($(".checkmeplz").is(":checked")){
-    		theuserName = $(".username").val();
-    		thepasWord = $(".password").val();
-    		console.log(theuserName  + thepasWord);
-    	}
+    	theuserName = $(".username").val();
+    	thepasWord = $(".password").val();
+    	console.log(theuserName  + thepasWord);
 
 
-      // to set the local storage
-    	localStorage.setItem("names", JSON.stringify(names));
+    	// 	$('#checkboxid').prop('checked', false);	
+     //  // to set the local storage
+    	// localStorage.setItem("names", JSON.stringify(names));
 
      
     });
