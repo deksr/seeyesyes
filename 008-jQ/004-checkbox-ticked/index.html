@@ -10,7 +10,9 @@
 
 <input class="username"><br>
 <input class="password" type="password"><br>
-<input class="checkmeplz" type="checkbox"> Remember Me<br>
+<input class="checkmeplz" type="checkbox" value="apple"> Remember my state<br>
+<input class="checkmeplz" type="checkbox" value="banana"> Remember Me too<br>
+
 <input class="thebut" type="button" value="Demo"> 
 
 
@@ -24,22 +26,49 @@
 
 	<script>
 
+
+
+
 	
   $( document ).ready(function() {
     console.log( "ready!" );
 
+    // pseudo:
+    // when the document loads first thing pull from storage
+    // from the pulled data see if the checkbox data was set to true
+    // if the checkbox data had been set to true then on the dom set it to true.
+
+    // whatever was set should work in the background even when the browser is closed/ reopened 
+
+    	var checkedValue = []//difference a global variable makes. 
+    	var noDupes;
+
+    //this is to check if the checkbox is checked or not
+    // ******************************************************
     $(".checkmeplz").click(function() {
     	console.log("hello there");
     	console.log(this.checked);
-    	if(this.checked){
-    		//do something
+
+    	if(this.checked === true){
+    		// push element into array
+        checkedValue.push($(this).val())
     	}
     	else{
-    		do something
+    		//remove particular element from array
+    		var unticked = checkedValue.indexOf($(this).val())
+				if(unticked != -1) {
+					checkedValue.splice(unticked, 1);
+				}
     	}
-    })//this is to check if the checkbox is checked or not
+    	console.log(checkedValue)
+    	noDupes = Array.from(new Set(checkedValue));//remove duplicates not necessary since we are doing this already in the else. 
+    })
 
 
+
+
+    // when clicked on the submit button then submit all the entries
+    // *************************************************************
     $( ".thebut" ).click(function() {
     	console.log("clicked")
 
@@ -48,12 +77,10 @@
     	theuserName = $(".username").val();
     	thepasWord = $(".password").val();
     	console.log(theuserName  + thepasWord);
-
-
+    	console.log(noDupes)
     	// 	$('#checkboxid').prop('checked', false);	
      //  // to set the local storage
     	// localStorage.setItem("names", JSON.stringify(names));
-
      
     });
 
