@@ -19,6 +19,8 @@
 
 
 
+
+
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -36,17 +38,18 @@
 	
   $( document ).ready(function() {
     console.log( "ready!" );
+
+    var checkedValue = []//difference a global variable makes. 
+    var noDupes;
+    
     // localStorage.removeItem("checkedState")//delete from local storage
     // $(".checkmeplz").attr("checked", false)//setting the initial state of the checkbox to false
 
-    // pseudo:
-    // 1) when the document loads first thing pull from storage
-    // from the pulled data see if the checkbox data was set to true
-    // if the checkbox data had been set to true then on the dom set it to true.
-    // 2) whatever was set should work in the background even when the browser is closed/ reopened 
 
-    // check what checkboxes have been checked
-    // ***************************************
+
+
+    // step 3: Pull data from localstorage and check the checkboxes when the DOM loads
+    // ************************************************************************
 
 	    var storedState = JSON.parse(localStorage.getItem("checkedState"));//get from storage
 	    console.log(storedState)
@@ -54,26 +57,36 @@
 	    $(".checkmeplz").each(function(index, element){ //on DOM select each element
 	    	for (var i = 0; i < storedState.length; i++) { // run the storage loop
 	     	  if($( this ).prop("value") === storedState[i] ){ //if the condition meets
-	     	 	 $(".checkmeplz[value='"+ storedState[i] +"']").prop("checked", true)//then on Dom select the element that has the stored state as value and then select the checkbox	
+	     	 	 $(".checkmeplz[value='"+ storedState[i] +"']").attr("checked", "checked")//then on Dom select the element that has the stored state as value and then select the checkbox	
 	     	  }
 	      };
 	    })
 
+
+
+
+
+    // step 4: When checkboxes have been pulled from localstorage and have been checked, next is to figure out which element have been checked on it and save a copy again in the localstorage
     // ******************************************************
 
+    	$(".checkmeplz").each(function(i, e){
+    		if($(this).is(":checked")){
+    		  console.log($(this).prop("value"))
+    		  checkedValue.push($(this).val())
+    		}		
+      })
+    			
+    		
+    
 
+    	
 
-
-
-
-    	var checkedValue = []//difference a global variable makes. 
-    	var noDupes;
-
-    //this is to check if the checkbox is checked or not
+    //step 1: this is to check if the checkbox is checked or not
     // ******************************************************
     $(".checkmeplz").click(function() {
     	console.log("hello there");
     	console.log(this.checked);
+
 
     	if(this.checked === true){
     		// push element into array
@@ -93,7 +106,7 @@
 
 
 
-    // when clicked on the submit button then submit all the entries
+    // step 2: when clicked on the submit button then submit all the entries
     // *************************************************************
     $( ".thebut" ).click(function() {
     	console.log("clicked")
@@ -106,9 +119,6 @@
     	console.log(noDupes)
 
     	localStorage.setItem("checkedState", JSON.stringify(noDupes));
-
-    	// 	$('#checkboxid').prop('checked', false);	
-     //  // to set the local storage
      
     });
 
