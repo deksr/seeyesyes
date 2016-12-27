@@ -7,13 +7,15 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-
+<div class="input-boxes">
 <input class="username"><br>
 <input class="password" type="password"><br>
-<input class="checkmeplz" type="checkbox" value="apple"> Remember my state<br>
-<input class="checkmeplz" type="checkbox" value="banana"> Remember Me too<br>
+<input class="checkmeplz" type="checkbox"  value="apple"> Remember my state<br>
+<input class="checkmeplz" type="checkbox"  value="banana"> Remember Me too<br>
 
-<input class="thebut" type="button" value="Demo"> 
+<input class="thebut" type="button" value="Save"> 
+
+</div>
 
 
 
@@ -24,6 +26,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
+
+
 	<script>
 
 
@@ -32,13 +36,35 @@
 	
   $( document ).ready(function() {
     console.log( "ready!" );
+    // localStorage.removeItem("checkedState")//delete from local storage
+    // $(".checkmeplz").attr("checked", false)//setting the initial state of the checkbox to false
 
     // pseudo:
-    // when the document loads first thing pull from storage
+    // 1) when the document loads first thing pull from storage
     // from the pulled data see if the checkbox data was set to true
     // if the checkbox data had been set to true then on the dom set it to true.
+    // 2) whatever was set should work in the background even when the browser is closed/ reopened 
 
-    // whatever was set should work in the background even when the browser is closed/ reopened 
+    // check what checkboxes have been checked
+    // ***************************************
+
+	    var storedState = JSON.parse(localStorage.getItem("checkedState"));//get from storage
+	    console.log(storedState)
+	    // console.log($(".checkmeplz").prop("value")) // apple
+	    $(".checkmeplz").each(function(index, element){ //on DOM select each element
+	    	for (var i = 0; i < storedState.length; i++) { // run the storage loop
+	     	  if($( this ).prop("value") === storedState[i] ){ //if the condition meets
+	     	 	 $(".checkmeplz[value='"+ storedState[i] +"']").prop("checked", true)//then on Dom select the element that has the stored state as value and then select the checkbox	
+	     	  }
+	      };
+	    })
+
+    // ******************************************************
+
+
+
+
+
 
     	var checkedValue = []//difference a global variable makes. 
     	var noDupes;
@@ -78,9 +104,11 @@
     	thepasWord = $(".password").val();
     	console.log(theuserName  + thepasWord);
     	console.log(noDupes)
+
+    	localStorage.setItem("checkedState", JSON.stringify(noDupes));
+
     	// 	$('#checkboxid').prop('checked', false);	
      //  // to set the local storage
-    	// localStorage.setItem("names", JSON.stringify(names));
      
     });
 
