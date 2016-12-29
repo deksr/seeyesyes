@@ -18,7 +18,36 @@ for (var prop in topList) {
   console.log(empty);
 }
 
+
+
+
+//////////object within an array//// even map can be used
+// *****************************
+
+
+
+var somObjHere = [{
+  apple: "apple",
+  banana: "banana",
+  grapes: "grapes"
+}]
+
+for (var i = 0; i < somObjHere.length; i++) {
+  console.log(somObjHere[i].apple)
+};
+
+somObjHere.map(function(eachone){
+  console.log(eachone.apple)
+})
+
+
+
+
+
+
 // way of iterating through objects
+// *****************************
+
 var songs = [
 { albumName: "babe", track: "you are my sweetheart" },
 { albumName: "world", track: "we all live here" },
@@ -229,6 +258,9 @@ for (var i = 0; i < someobj.length; i++) {
 
   // window.setInterval(moto.bind(this, 5000), 5000)
   // window.setInterval(moto.bind(this, 10000), 10000)
+
+
+
 
 
 
