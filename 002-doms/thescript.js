@@ -47,6 +47,28 @@ var onMyMind = document.querySelector(".onmymind");
 onMyMind.innerText= "Kanye West - bam"
 
 
+var names = ["John", "Mary"]
+var inpuT = document.querySelectorAll(".inpu");
+
+
+for (var i = 0; i < inpuT.length; i++) {
+  for (var i = 0; i < names.length; i++) {
+  	if(names[i] === inpuT[i].getAttribute("value")){
+  		// console.log("hello");
+  		inpuT[i].setAttribute("checked", "checked") 
+  	}
+  };
+
+};
+
+
+
+
+
+
+
+
+
 
 
 
