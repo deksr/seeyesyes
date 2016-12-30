@@ -14,6 +14,9 @@ var empty = [];
 for (var prop in topList) {
   console.log(prop + " : " + topList[prop]);
   console.log(topList.one);
+  console.log(prop);
+  console.log(topList[prop]);
+
   empty.push(topList[prop])
   console.log(empty);
 }
@@ -27,19 +30,53 @@ for (var prop in topList) {
 
 
 var somObjHere = [{
-  apple: "apple",
-  banana: "banana",
-  grapes: "grapes"
+  apples: "apple",
+  bananas: "banana",
+  grapes: "grape"
 }]
 
 for (var i = 0; i < somObjHere.length; i++) {
-  console.log(somObjHere[i].apple)
+  // console.log(somObjHere[i].apple);
+
+  for (var prop in somObjHere[i]) {
+    console.log(prop)
+    console.log(somObjHere[i][prop]);
+  }
+
 };
 
-somObjHere.map(function(eachone){
-  console.log(eachone.apple)
-})
 
+
+
+
+// getting value and keys
+
+var obj = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.keys(obj))//['0', '1', '2']
+
+
+
+for (var prop in obj) {
+  console.log(prop)
+  console.log(obj[prop]);
+}
+
+
+
+
+
+
+// for (var p in somObjHere) {
+//     if (somObjHere.hasOwnProperty(p)) {
+//         console.log("look I'm running");
+//         console.log(somObjHere[p])
+
+//     } 
+
+//     else{
+//       console.log("no dude!")
+//     }
+// }
 
 
 
