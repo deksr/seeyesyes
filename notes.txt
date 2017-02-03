@@ -1,4 +1,4 @@
-001-responsives: responsive design based on different media. No bootstraps used.
+001-refreshing:refreshing on javascript after talking short breaks.
 
 002-doms: This is DOM manipulation.
 
